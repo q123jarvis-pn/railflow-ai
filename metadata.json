@@ -1,0 +1,6 @@
+{
+  "name": "RailFlow AI",
+  "description": "Smart Mumbai Suburban Railway Crowd Monitoring & Prediction System",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
