@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Station, Train } from '../types';
+<<<<<<< HEAD
 import { MOCK_STATIONS } from '../data/mockData';
+=======
+import { MOCK_STATIONS, MOCK_TRAINS } from '../data/mockData';
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
 import { ApiService, RecommendationItem } from '../services/api';
 import { Card } from '../components/ui/Card';
 import { StationCard } from '../components/ui/StationCard';
@@ -41,7 +45,10 @@ export const PassengerHomeView: React.FC<PassengerHomeViewProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLineFilter, setSelectedLineFilter] = useState<'ALL' | 'WESTERN' | 'CENTRAL' | 'HARBOUR'>('ALL');
   const [stationsList, setStationsList] = useState<Station[]>(MOCK_STATIONS);
+<<<<<<< HEAD
   const [trainsList, setTrainsList] = useState<Train[]>([]);
+=======
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
   const [recommendations, setRecommendations] = useState<RecommendationItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isBackendLive, setIsBackendLive] = useState(false);
@@ -52,6 +59,7 @@ export const PassengerHomeView: React.FC<PassengerHomeViewProps> = ({
     setIsLoading(true);
     setFetchError(null);
     try {
+<<<<<<< HEAD
       const [stationsRes, recsRes, trainsRes] = await Promise.all([
         ApiService.getStations({ line: selectedLineFilter !== 'ALL' ? selectedLineFilter : undefined }),
         ApiService.getRecommendations(),
@@ -61,6 +69,15 @@ export const PassengerHomeView: React.FC<PassengerHomeViewProps> = ({
       setRecommendations(recsRes.recommendations);
       setTrainsList(trainsRes.trains);
       setIsBackendLive(stationsRes.isFromBackend || trainsRes.isFromBackend);
+=======
+      const [stationsRes, recsRes] = await Promise.all([
+        ApiService.getStations({ line: selectedLineFilter !== 'ALL' ? selectedLineFilter : undefined }),
+        ApiService.getRecommendations()
+      ]);
+      setStationsList(stationsRes.stations);
+      setRecommendations(recsRes.recommendations);
+      setIsBackendLive(stationsRes.isFromBackend);
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
     } catch (err: any) {
       console.warn('Error loading backend data for PassengerHomeView:', err);
       setFetchError('Using cached station data');
@@ -404,6 +421,7 @@ export const PassengerHomeView: React.FC<PassengerHomeViewProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<<<<<<< HEAD
           {trainsList.map((train) => (
             <TrainCard key={train.id} train={train} />
           ))}
@@ -412,6 +430,11 @@ export const PassengerHomeView: React.FC<PassengerHomeViewProps> = ({
               No active locals found matching the selected filter.
             </div>
           )}
+=======
+          {MOCK_TRAINS.map((train) => (
+            <TrainCard key={train.id} train={train} />
+          ))}
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
 import {
   Station,
+<<<<<<< HEAD
   Train,
+=======
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
   Alert,
   NetworkOverviewStats,
   CrowdPrediction,
@@ -148,6 +151,7 @@ export interface RecommendationItem {
   generatedAt: string;
 }
 
+<<<<<<< HEAD
 export interface AiAdvisoryResult {
   summary: string;
   keyInsights: string[];
@@ -157,6 +161,8 @@ export interface AiAdvisoryResult {
   timestamp: string;
 }
 
+=======
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
 // -------------------------------------------------------------
 // FRONTEND API CLIENT SERVICE
 // -------------------------------------------------------------
@@ -271,6 +277,7 @@ export const ApiService = {
   },
 
   /**
+<<<<<<< HEAD
    * Fetch Active Trains in Transit (GET /api/trains)
    */
   async getTrains(params?: {
@@ -314,6 +321,8 @@ export const ApiService = {
   },
 
   /**
+=======
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
    * Fetch Network Overview KPI Statistics
    */
   async getNetworkOverview(): Promise<{ stats: NetworkOverviewStats; isFromBackend: boolean }> {
@@ -471,6 +480,22 @@ export const ApiService = {
             rationale: 'FOB bottleneck optical flow exceeded 1.8 persons/sqm threshold with 89% predicted surge in 15 minutes.',
             estimatedCrowdRelief: '-22% localized staircase congestion within 8 minutes',
             generatedAt: '08:43 PM'
+<<<<<<< HEAD
+=======
+          },
+          {
+            id: 'REC-002',
+            stationId: 'kurla',
+            stationName: 'Kurla Junction',
+            platformNumber: 7,
+            priority: 'HIGH',
+            category: 'HOLDING_AREA',
+            title: 'Activate East Booking Hall Auxiliary Holding Enclosure',
+            actionRequired: 'Open North-East holding bay gates to stage passengers safely before entering Harbour Line platform stairs.',
+            rationale: 'UTS digital ticket bookings spiked by 34% for Panvel-bound evening commuters.',
+            estimatedCrowdRelief: '-18% platform edge crowding during 15-minute peak window',
+            generatedAt: '08:41 PM'
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
           }
         ],
         isFromBackend: false
@@ -504,7 +529,11 @@ export const ApiService = {
   },
 
   /**
+<<<<<<< HEAD
    * Acknowledge Alert (POST /api/alerts/:id/ack)
+=======
+   * Acknowledge Alert (POST)
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
    */
   async acknowledgeAlert(id: string): Promise<boolean> {
     try {
@@ -516,6 +545,7 @@ export const ApiService = {
       console.warn(`API /api/alerts/${id}/ack failed:`, error);
       return false;
     }
+<<<<<<< HEAD
   },
 
   /**
@@ -538,5 +568,7 @@ export const ApiService = {
       console.warn('API /api/ai/advisory unavailable:', error);
       return { advisory: null, isFromBackend: false };
     }
+=======
+>>>>>>> 0cbbf9798e5d6de6e0b6065efac7a84d70e0d10c
   }
 };
